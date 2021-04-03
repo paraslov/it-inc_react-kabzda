@@ -1,0 +1,15 @@
+.switcherWrapper {
+    margin-left: 50px;
+}
+
+.switcherTitle {
+    font-size: 1.2em;
+    margin: 10px;
+}
+.switcherTitle span {
+    border-bottom: 1px solid #333;
+}
+
+.switcher {
+    display: flex;
+}
