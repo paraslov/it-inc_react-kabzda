@@ -14,11 +14,11 @@ export function Rating(props: RatingPropsType) {
                 {props.ratingTitle}
             </div>
             <div className={s.starsBlock}>
-                <Star selected={props.ratingValue > 0}/>
-                <Star selected={props.ratingValue > 1}/>
-                <Star selected={props.ratingValue > 2}/>
-                <Star selected={props.ratingValue > 3}/>
-                <Star selected={props.ratingValue > 4}/>
+                <Star id={1} selected={props.ratingValue > 0}/>
+                <Star id={2} selected={props.ratingValue > 1}/>
+                <Star id={3} selected={props.ratingValue > 2}/>
+                <Star id={4} selected={props.ratingValue > 3}/>
+                <Star id={5} selected={props.ratingValue > 4}/>
             </div>
 
         </div>

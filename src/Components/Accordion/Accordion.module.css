@@ -9,3 +9,7 @@
 .accTitle {
     margin-left: 25px;
 }
+.uncontrolledAccTitle {
+    cursor: pointer;
+    margin-left: 25px;
+}
