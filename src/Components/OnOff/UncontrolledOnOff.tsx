@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
-export function UncontrolledOnOff() {
+type UncontrolledOnOffPropsType = {
+    onChange: (onOff: boolean) => void
+}
+
+export function UncontrolledOnOff(props: UncontrolledOnOffPropsType) {
 
     const [on, setOn] = useState(false)
 
@@ -28,12 +32,21 @@ export function UncontrolledOnOff() {
         backgroundColor: on ? "green" : "red",
     }
 
+    const switchOn = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+    const switchOff = () => {
+        setOn(false)
+        props.onChange(false)
+    }
+
     return (
         <div className={s.switcherWrapper}>
             <div className={s.switcherTitle}><span>Switcher(uncontrolled)</span></div>
             <div className={s.switcher}>
-                <div style={onStyle} onClick={() => setOn(true)}>On</div>
-                <div style={offStyle} onClick={() => setOn(false)}>Off</div>
+                <div style={onStyle} onClick={switchOn}>On</div>
+                <div style={offStyle} onClick={switchOff}>Off</div>
                 <div style={indicatorStyle}></div>
             </div>
         </div>
