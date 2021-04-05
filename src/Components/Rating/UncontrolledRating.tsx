@@ -8,8 +8,7 @@ type RatingPropsType = {
 
 export function UncontrolledRating(props: RatingPropsType) {
 
-    const [ratingValue, setRatingValue] = useState(0)
-    const setRating = (rating: number) => setRatingValue(rating)
+    const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
 
     return (
         <div className={s.ratingWrapper}>
@@ -17,11 +16,11 @@ export function UncontrolledRating(props: RatingPropsType) {
                 {props.ratingTitle}
             </div>
             <div className={s.starsBlock}>
-                <Star id = {1} selected={ratingValue > 0} setRating={setRating}/>
-                <Star id = {2} selected={ratingValue > 1} setRating={setRating}/>
-                <Star id = {3} selected={ratingValue > 2} setRating={setRating}/>
-                <Star id = {4} selected={ratingValue > 3} setRating={setRating}/>
-                <Star id = {5} selected={ratingValue > 4} setRating={setRating}/>
+                <Star value = {1} selected={ratingValue > 0} setRating={setRatingValue}/>
+                <Star value = {2} selected={ratingValue > 1} setRating={setRatingValue}/>
+                <Star value = {3} selected={ratingValue > 2} setRating={setRatingValue}/>
+                <Star value = {4} selected={ratingValue > 3} setRating={setRatingValue}/>
+                <Star value = {5} selected={ratingValue > 4} setRating={setRatingValue}/>
             </div>
 
         </div>
