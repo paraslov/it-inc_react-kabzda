@@ -2,9 +2,12 @@ import React from 'react';
 import {Star} from './Star/Star';
 import s from './Rating.module.css'
 
+export type RatingValuesType = 0 | 1 | 2 | 3 | 4 | 5
+
 type RatingPropsType = {
     ratingTitle: string
-    ratingValue: 0 | 1 | 2 | 3 | 4 | 5
+    ratingValue: RatingValuesType
+    setRating: (rating: RatingValuesType) => void
 }
 
 export function Rating(props: RatingPropsType) {
@@ -14,11 +17,11 @@ export function Rating(props: RatingPropsType) {
                 {props.ratingTitle}
             </div>
             <div className={s.starsBlock}>
-                <Star value={1} selected={props.ratingValue > 0}/>
-                <Star value={2} selected={props.ratingValue > 1}/>
-                <Star value={3} selected={props.ratingValue > 2}/>
-                <Star value={4} selected={props.ratingValue > 3}/>
-                <Star value={5} selected={props.ratingValue > 4}/>
+                <Star selected={props.ratingValue > 0} setRating={() => props.setRating(1)}/>
+                <Star selected={props.ratingValue > 1} setRating={() => props.setRating(2)}/>
+                <Star selected={props.ratingValue > 2} setRating={() => props.setRating(3)}/>
+                <Star selected={props.ratingValue > 3} setRating={() => props.setRating(4)}/>
+                <Star selected={props.ratingValue > 4} setRating={() => props.setRating(5)}/>
             </div>
 
         </div>

@@ -16,11 +16,11 @@ export function UncontrolledRating(props: RatingPropsType) {
                 {props.ratingTitle}
             </div>
             <div className={s.starsBlock}>
-                <Star value = {1} selected={ratingValue > 0} setRating={setRatingValue}/>
-                <Star value = {2} selected={ratingValue > 1} setRating={setRatingValue}/>
-                <Star value = {3} selected={ratingValue > 2} setRating={setRatingValue}/>
-                <Star value = {4} selected={ratingValue > 3} setRating={setRatingValue}/>
-                <Star value = {5} selected={ratingValue > 4} setRating={setRatingValue}/>
+                <Star selected={ratingValue > 0} setRating={() => setRatingValue(1)}/>
+                <Star selected={ratingValue > 1} setRating={() => setRatingValue(2)}/>
+                <Star selected={ratingValue > 2} setRating={() => setRatingValue(3)}/>
+                <Star selected={ratingValue > 3} setRating={() => setRatingValue(4)}/>
+                <Star selected={ratingValue > 4} setRating={() => setRatingValue(5)}/>
             </div>
 
         </div>
