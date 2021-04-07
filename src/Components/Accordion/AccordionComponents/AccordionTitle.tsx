@@ -8,7 +8,7 @@ type AccordionTitlePropsType = {
 
 export function AccordionTitle(props: AccordionTitlePropsType) {
     return (
-        <div className={s.uncontrolledAccTitle} onClick={props.collapseMenu}>
+        <div className={s.uncontrolledAccTitle} onClick={(e) => props.collapseMenu()}>
             <h3>{props.title}</h3>
         </div>
     )
