@@ -6,7 +6,7 @@ import {Accordion, AccordionPropsType} from './Accordion';
 export default {
     title: 'Refactored/Accordion',
     component: Accordion,
-} as Meta;
+} as Meta
 
 const callback = action('collapseMenu action was fired')
 
