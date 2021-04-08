@@ -3,22 +3,13 @@ import {Meta} from '@storybook/react';
 
 
 export default {
-    title: 'Studying',
+    title: 'Studying/Input',
     // component: input
 } as Meta
 
-export const NotControlledInput = () => <input/>
+export const UncontrolledInput = () => <input/>
 
 export const FixedValueInput = () => <input value={'https://www.para-slov.ru'}/>
-
-export const ChangeValueInputUsingOnChange = () => {
-    const [inpValue, setInpValue] = useState('')
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value)
-    return <div>
-        <input value={inpValue} onChange={onChangeHandler}/>
-        {inpValue}
-    </div>
-}
 
 export const SaveInputValueUsingRef = () => {
     const inpRef = useRef<HTMLInputElement>(null)
@@ -32,4 +23,36 @@ export const SaveInputValueUsingRef = () => {
             <div>{inpData}</div>
         </div>
     )
+}
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setParentValue(e.currentTarget.value)
+    return <div>
+        <input value={parentValue} onChange={onChangeHandler}/>
+        {parentValue}
+    </div>
+}
+
+export const ControlledCheckbox = () => {
+    const [parentValue, setParentValue] = useState(false)
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setParentValue(e.currentTarget.checked)
+    return <div>
+        <input checked={parentValue} type={'checkbox'} onChange={onChangeHandler}/>
+        {parentValue}
+    </div>
+}
+
+export const ControlledSelect = () => {
+    const [parentValue, setParentValue] = useState<string | undefined>(undefined)
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => setParentValue(e.currentTarget.value)
+    return <div>
+        <select value={parentValue} onChange={onChangeHandler}>
+            <option>none</option>
+            <option value="1">ReactJS</option>
+            <option value="2">Angular</option>
+            <option value="3">Vue</option>
+        </select>
+        <div>{parentValue}</div>
+    </div>
 }
