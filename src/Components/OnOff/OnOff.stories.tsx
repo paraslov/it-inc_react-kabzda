@@ -1,18 +1,28 @@
 import React, {useState} from 'react';
-import { Meta } from '@storybook/react';
-import {OnOff} from './OnOff';
+import {Meta, Story} from '@storybook/react';
+import {OnOff, OnOffPropsType} from './OnOff';
 import {action} from '@storybook/addon-actions';
 
 export default {
-    title: 'OnOff',
+    title: 'Refactored/OnOff',
     component: OnOff
 } as Meta;
 
 const callback = action('on or off were clicked')
 
-export const OffMode = () => <OnOff on={false} setOn={callback}/>
-export const OnMode = () => <OnOff on={true} setOn={callback}/>
+const Template: Story<OnOffPropsType> = (args) => <OnOff {...args}/>
 
+export const OnMode = Template.bind({})
+OnMode.args = {
+    on: true,
+    setOn: callback
+}
+
+export const OffMode = Template.bind({})
+OffMode.args = {
+    on: false,
+    setOn: callback
+}
 
 export const SwitchMode = () => {
     const [value, setValue] = useState<boolean>(false)

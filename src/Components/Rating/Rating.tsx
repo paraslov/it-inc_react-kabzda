@@ -4,7 +4,7 @@ import s from './Rating.module.css'
 
 export type RatingValuesType = 0 | 1 | 2 | 3 | 4 | 5
 
-type RatingPropsType = {
+export type RatingPropsType = {
     ratingTitle: string
     ratingValue: RatingValuesType
     setRating: (rating: RatingValuesType) => void

@@ -1,30 +1,21 @@
 import React from 'react';
-import {Meta} from '@storybook/react';
-import {UncontrolledRating} from './UncontrolledRating';
+import {Meta, Story} from '@storybook/react';
+import {UncontrolledRating, UncontrolledRatingPropsType} from './UncontrolledRating';
 import {action} from '@storybook/addon-actions';
+import {RatingPropsType} from './Rating';
 
 export default {
-    title: 'UncontrolledRating',
+    title: 'Refactored/UncontrolledRating',
     component: UncontrolledRating,
 } as Meta;
 
 const callback = action('value, that UncRating trying to set')
 
-export const UncontrolledRatingTest0 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={0}
-                                                                onChange={callback}/>
-export const UncontrolledRatingTest1 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={1}
-                                                                onChange={callback}/>
-export const UncontrolledRatingTest2 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={2}
-                                                                onChange={callback}/>
-export const UncontrolledRatingTest3 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={3}
-                                                                onChange={callback}/>
-export const UncontrolledRatingTest4 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={4}
-                                                                onChange={callback}/>
-export const UncontrolledRatingTest5 = () => <UncontrolledRating ratingTitle={'Terminator (uncontrolled)'}
-                                                                defaultValue={5}
-                                                                onChange={callback}/>
+const Template: Story<UncontrolledRatingPropsType> = (args) => <UncontrolledRating {...args}/>
+
+export const UncontrolledRatingTest = Template.bind({})
+UncontrolledRatingTest.args = {
+    ratingTitle: 'Segun',
+    defaultValue: 3,
+    onChange: callback
+}

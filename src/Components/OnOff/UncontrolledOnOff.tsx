@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
-type UncontrolledOnOffPropsType = {
+export type UncontrolledOnOffPropsType = {
+    /**
+     * param, that optionally can set
+     * switcher in On or Off position (true or false)
+     */
     defaultValue?: boolean
     onChange: (onOff: boolean) => void
 }

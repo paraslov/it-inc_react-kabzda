@@ -3,13 +3,16 @@ import {Star} from './Star/Star';
 import s from './Rating.module.css'
 import {RatingValuesType} from './Rating';
 
-type RatingPropsType = {
+export type UncontrolledRatingPropsType = {
     ratingTitle: string
+    /**
+     * default rating value, that you can optionally set up (0-5)
+     */
     defaultValue?: RatingValuesType
     onChange: (value: RatingValuesType) => void
 }
 
-export function UncontrolledRating(props: RatingPropsType) {
+export function UncontrolledRating(props: UncontrolledRatingPropsType) {
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(props.defaultValue ? props.defaultValue : 0)
 

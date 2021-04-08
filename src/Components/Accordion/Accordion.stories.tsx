@@ -1,20 +1,29 @@
 import React, {useState} from 'react';
-import { Meta } from '@storybook/react';
+import {Meta, Story} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
-import {Accordion} from './Accordion';
-import {UncontrolledAccordion} from './UncontrolledAccordion';
+import {Accordion, AccordionPropsType} from './Accordion';
 
 export default {
-    title: 'Accordion',
+    title: 'Refactored/Accordion',
     component: Accordion,
 } as Meta;
 
 const callback = action('collapseMenu action was fired')
 
-export const UnCollapsedMode = () => <Accordion title={'Users'} collapseMenu={callback} collapsed={false}/>
-export const CollapsedMode = () => <Accordion title={'Menu'} collapseMenu={callback} collapsed={true}/>
-export const UncontrolledAccordionTest = () => <UncontrolledAccordion title={'Items (uncontrolled)'} />
+const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 
+export const UnCollapsedMode = Template.bind({});
+UnCollapsedMode.args = {
+    title: 'Users',
+    collapsed: false,
+    collapseMenu: callback
+};
+export const CollapsedMode = Template.bind({});
+CollapsedMode.args = {
+    title: 'Menu',
+    collapsed: true,
+    collapseMenu: callback
+};
 
 export const SwitchMode = () => {
     const [value, setValue] = useState<boolean>(false)

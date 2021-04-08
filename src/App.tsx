@@ -21,7 +21,7 @@ function App() {
                 <Rating ratingTitle={'Scary Movie'}
                         ratingValue={ratingValue}
                         setRating={setRatingValue}/>
-                <UncontrolledRating ratingTitle={'Alien(uncontrolled)'} />
+                <UncontrolledRating ratingTitle={'Alien(uncontrolled)'} onChange={()=> {}}/>
             </div>
             <UncontrolledOnOff onChange={setOn}/>{`${on}`}
             <OnOff on={on} setOn={setOn}/>
