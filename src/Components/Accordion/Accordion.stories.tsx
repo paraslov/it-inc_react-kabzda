@@ -9,6 +9,7 @@ export default {
 } as Meta
 
 const callback = action('collapseMenu action was fired')
+const onClickCallback = action('list item sending it\'s value')
 
 const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 
@@ -16,16 +17,31 @@ export const UnCollapsedMode = Template.bind({});
 UnCollapsedMode.args = {
     title: 'Users',
     collapsed: false,
-    collapseMenu: callback
+    collapseMenu: callback,
+    onItemClick: onClickCallback,
+    items: [
+        {title: 'Yuri', value: 1},
+        {title: 'Boris', value: 2},
+        {title: 'Sergio', value: 3},
+        {title: 'Alena', value: 4},
+    ]
 };
 export const CollapsedMode = Template.bind({});
 CollapsedMode.args = {
     title: 'Menu',
     collapsed: true,
-    collapseMenu: callback
+    collapseMenu: callback,
+    items: []
 };
 
 export const SwitchMode = () => {
     const [value, setValue] = useState<boolean>(false)
-    return <Accordion title={'Stories'} collapseMenu={() => setValue(!value)} collapsed={value}/>
+    return <Accordion title={'Stories'} collapseMenu={() => setValue(!value)} collapsed={value}
+                      onItemClick={onClickCallback}
+    items={[
+        {title: 'Yuri', value: 1},
+        {title: 'Boris', value: 2},
+        {title: 'Sergio', value: 3},
+        {title: 'Alena', value: 4},
+    ]}/>
 }

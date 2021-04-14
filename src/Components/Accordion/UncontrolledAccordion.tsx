@@ -3,7 +3,7 @@ import {AccordionTitle} from './AccordionComponents/AccordionTitle';
 import {AccordionBody} from './AccordionComponents/AccordionBody';
 import s from './Accordion.module.css'
 
-export type AccordionPropsType = {
+type AccordionPropsType = {
     title: string
 }
 
@@ -13,7 +13,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
     return (
         <div className={s.accordionWrapper}>
             <AccordionTitle title={props.title} collapseMenu={collapseMenu}/>
-            {!collapsed && <AccordionBody/>}
+            {/*{!collapsed && <AccordionBody items={}/>}*/}
         </div>
     )
 }
