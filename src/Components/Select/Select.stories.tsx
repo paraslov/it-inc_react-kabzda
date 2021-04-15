@@ -16,21 +16,6 @@ const options: OptionType[] = [
     {title: 'C++', value: 5},
 ]
 
-
-
-const callback = () => action(`value wants to change`)
-
-const Template: Story<SelectPropsType> = (args) => {
-    return <Select {...args} />
-}
-
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-    title: {title: 'none', value: 'none'},
-    options: options,
-    onChoiceChange: callback
-}
-
 export const Controlled = () => {
     const [currentChoice, setCurrentChoice] = useState<OptionType>({title: 'specialization', value: 'none'})
     return <Select title={currentChoice} options={options} onChoiceChange={setCurrentChoice}/>
