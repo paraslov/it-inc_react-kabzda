@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {OptionType, Select, SelectPropsType} from './Select';
 import {Meta, Story} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
@@ -16,13 +16,22 @@ const options: OptionType[] = [
     {title: 'C++', value: 5},
 ]
 
+
+
 const callback = () => action(`value wants to change`)
 
-const Template: Story<SelectPropsType> = (args) => <Select {...args} />
+const Template: Story<SelectPropsType> = (args) => {
+    return <Select {...args} />
+}
 
-export const SelectTest = Template.bind({})
-SelectTest.args = {
-    title: 'none',
+export const Uncontrolled = Template.bind({})
+Uncontrolled.args = {
+    title: {title: 'none', value: 'none'},
     options: options,
-    onChange: callback
+    onChoiceChange: callback
+}
+
+export const Controlled = () => {
+    const [currentChoice, setCurrentChoice] = useState<OptionType>({title: 'specialization', value: 'none'})
+    return <Select title={currentChoice} options={options} onChoiceChange={setCurrentChoice}/>
 }

@@ -54,6 +54,10 @@
     transition: 0.3s;
 }
 
+.active {
+    background-color: mediumaquamarine;
+}
+
 .li:hover {
     background-color: mediumaquamarine;
 }

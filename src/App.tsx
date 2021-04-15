@@ -10,12 +10,20 @@ import {OptionType, Select} from './Components/Select/Select';
 import {log} from 'util';
 
 function App() {
+
+    //* Accordion data and functions ===============================================================>>
     const accordionItems: Array<ItemsType> = [
         {title: 'Yuri', value: 1},
         {title: 'Boris', value: 2},
         {title: 'Sergio', value: 3},
         {title: 'Alena', value: 4},
     ]
+    const [collapsed, setCollapsed] = useState(false)
+    const [ratingValue, setRatingValue] = useState<RatingValuesType>(0)
+    const [on, setOn] = useState(false)
+    const onItemClick = (value: any) => console.log(`Acc. item number ${value} send it's value!`)
+
+    //* Select data and functions =================================================================>>
     const options: OptionType[] = [
         {title: 'JavaScript', value: 1},
         {title: 'Java', value: 2},
@@ -23,15 +31,15 @@ function App() {
         {title: 'C#', value: 4},
         {title: 'C++', value: 5},
     ]
-    const onSelectChange = (option: OptionType) => console.log(`title is ${option.title} and value id ${option.value}`)
-    const [collapsed, setCollapsed] = useState(false)
-    const [ratingValue, setRatingValue] = useState<RatingValuesType>(0)
-    const [on, setOn] = useState(false)
-    const onItemClick = (value: any) => alert(`Acc. item number ${value} send it's value!`)
+    const [currentChoice, setCurrentChoice] = useState<OptionType>({title: 'specialization', value: 'none'})
+    const onChoiceChange = (option: OptionType) => {
+        console.log(`title is ${option.title} and value id ${option.value}`)
+        setCurrentChoice(option)
+    }
 
     return (
         <div className="appWrapper">
-            <Select title={'specialization'} options={options} onChange={onSelectChange}/>
+            <Select title={currentChoice} options={options} onChoiceChange={onChoiceChange}/>
             <Accordion title={'Menu'}
                        collapsed={collapsed}
                        collapseMenu={() => setCollapsed(!collapsed)}
