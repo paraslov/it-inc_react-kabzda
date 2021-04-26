@@ -23,6 +23,7 @@ export type SelectPropsType = {
 }
 
 export function Select(props: SelectPropsType) {
+    console.log('Select Rendering')
 
     const [collapsed, setCollapsed] = useState(true)
 
