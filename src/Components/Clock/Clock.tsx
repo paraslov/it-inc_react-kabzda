@@ -26,17 +26,12 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
     const minutes = date.getMinutes()
     const hours = date.getHours()
 
-
     const hourAngle = (hours * 30) + (minutes / 2)
-
     const minuteAngle = (minutes * 6)
-
     const secondsAngle = (seconds * 6)
-
-
     const getStyle = (angle: number) => ({transform: `rotateZ(${angle}deg)`})
 
-    const clock = `${get2digitString(date.getHours())}:${get2digitString(date.getMinutes())}:${get2digitString(date.getSeconds())}`
+    const clock = `${get2digitString(hours)}:${get2digitString(minutes)}:${get2digitString(seconds)}`
 
     return (
         <div>
