@@ -8,6 +8,7 @@ import {UncontrolledRating} from './Components/Rating/UncontrolledRating';
 import {OnOff} from './Components/OnOff/OnOff';
 import {OptionType, Select} from './Components/Select/Select';
 import {log} from 'util';
+import {Clock} from './Components/Clock/Clock';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
 
     return (
         <div className="appWrapper">
+            <Clock clockType={'digital'}/>
             <Select title={currentChoice} options={options} onChoiceChange={onChoiceChange}/>
             <Accordion title={'Menu'}
                        collapsed={collapsed}

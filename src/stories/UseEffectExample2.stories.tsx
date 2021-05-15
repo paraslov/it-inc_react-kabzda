@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Meta} from '@storybook/react';
 
 export default {
-    title: 'Studying/UseEffect',
+    title: 'Studying/UseEffect/Example2',
     //component:
 } as Meta
 
