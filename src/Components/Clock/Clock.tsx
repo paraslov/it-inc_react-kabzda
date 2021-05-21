@@ -1,11 +1,18 @@
 import React, {useEffect, useState} from 'react'
-import s from './Clock.module.css'
+import {ClockDigitalSkin} from './ClockDigitalSkin';
+import {ClockAnalogSkin} from './ClockAnalogSkin';
 
-
-const get2digitString = (num: number) => num >= 10 ? num : `0${num}`
 
 export type ClockPropsType = {
-    clockDisplay: 'digital' | 'analog'
+    /**
+     * optionally you can chose skin of the clock - analog or digital (digital will show by default)
+     */
+    clockDisplay?: 'digital' | 'analog'
+}
+export type ClockSkinsPropsType = {
+    seconds: number
+    minutes: number
+    hours: number
 }
 
 export const Clock: React.FC<ClockPropsType> = (props) => {
@@ -26,30 +33,22 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
     const minutes = date.getMinutes()
     const hours = date.getHours()
 
-    const hourAngle = (hours * 30) + (minutes / 2)
-    const minuteAngle = (minutes * 6)
-    const secondsAngle = (seconds * 6)
-    const getStyle = (angle: number) => ({transform: `rotateZ(${angle}deg)`})
-
-    const clock = `${get2digitString(hours)}:${get2digitString(minutes)}:${get2digitString(seconds)}`
+    let skin
+    switch (props.clockDisplay) {
+        case 'analog':
+            skin = <ClockAnalogSkin seconds={seconds} minutes={minutes} hours={hours}/>
+            break
+        case 'digital':
+        default:
+            skin = <ClockDigitalSkin seconds={seconds} minutes={minutes} hours={hours}/>
+    }
 
     return (
         <div>
-            {props.clockDisplay === 'digital' ?
-                <div>{clock}</div>
-                :
-                <div className={s.clock}>
-                    <div className={s.hoursContainer}>
-                        <div className={s.hours} style={getStyle(hourAngle)}/>
-                    </div>
-                    <div className={s.minutesContainer}>
-                        <div className={s.minutes} style={getStyle(minuteAngle)}/>
-                    </div>
-                    <div className={s.secondsContainer}>
-                        <div className={s.seconds} style={getStyle(secondsAngle)}/>
-                    </div>
-                </div>
-            }
+            {skin}
         </div>
     )
 }
+
+
+

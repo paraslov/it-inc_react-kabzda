@@ -1,9 +1,9 @@
 .clock {
-    background: url(https://w7.pngwing.com/pngs/1007/198/png-transparent-clock-face-measurement-time-clock-without-hands-angle-white-text-thumbnail.png) no-repeat center;
+    background: url(https://i.pinimg.com/736x/d5/d4/87/d5d487c5a6e3e2cf8b8318e8714d9233.jpg) no-repeat center;
     background-size: 100%;
     padding-bottom: 25%;
     position: relative;
-    width: 200px;
+    width: 330px;
 }
 
 .clock:after {

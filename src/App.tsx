@@ -3,11 +3,9 @@ import './App.css';
 import {Accordion, ItemsType} from './Components/Accordion/Accordion';
 import {Rating, RatingValuesType} from './Components/Rating/Rating';
 import {UncontrolledOnOff} from './Components/OnOff/UncontrolledOnOff';
-import {UncontrolledAccordion} from './Components/Accordion/UncontrolledAccordion';
 import {UncontrolledRating} from './Components/Rating/UncontrolledRating';
 import {OnOff} from './Components/OnOff/OnOff';
 import {OptionType, Select} from './Components/Select/Select';
-import {log} from 'util';
 import {Clock} from './Components/Clock/Clock';
 
 function App() {
@@ -40,7 +38,7 @@ function App() {
 
     return (
         <div className="appWrapper">
-            <Clock clockType={'digital'}/>
+            <Clock clockDisplay={'digital'}/>
             <Select title={currentChoice} options={options} onChoiceChange={onChoiceChange}/>
             <Accordion title={'Menu'}
                        collapsed={collapsed}
