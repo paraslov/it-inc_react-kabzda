@@ -14,21 +14,30 @@ export const UseEffectSetInterval = () => {
 
     useEffect(() => {
         console.log('useEffect setInterval')
-        setInterval(() => {
+        const intervalId1 = setInterval(() => {
             setCount(state => state + 1)
             console.log('tick: ' + count)
         }, 1000)
-        setInterval(() => {
+        const intervalId2 = setInterval(() => {
             setFake(fake + 1)
             console.log('fake tick: ' + fake)
         }, 1000)
+// cleanup!!! =====================================================================================================>>
+        return () => {
+            clearInterval(intervalId1)
+            clearInterval(intervalId2)
+        }
     }, [])
+
     useEffect(() => {
         console.log('useEffect setTimeout')
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             document.title = count.toString()
         }, 1000)
-
+// cleanup!!! =====================================================================================================>>
+        return () => {
+            clearTimeout(timeoutId)
+        }
     }, [])
 
     return (

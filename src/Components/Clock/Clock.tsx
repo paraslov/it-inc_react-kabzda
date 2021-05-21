@@ -23,7 +23,7 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
             console.log('tick')
             setDate(new Date())
         }, 1000)
-
+// cleanup!!! =====================================================================================================>>
         return () => {
             clearInterval(intervalId)
         }
